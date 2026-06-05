@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI for Small Business - Master AI Integration in 8 Weeks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --accent-dark: #1e40af;
+            --success: #10b981;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5% 4rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(59, 130, 246, 0.05) 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .hero .accent {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            padding: 5rem 5%;
+            background: var(--bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .module-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .module-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .module-number {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .module-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .module-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .module-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+            position: relative;
+        }
+
+        .module-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.15);
+            transform: scale(1.05);
+        }
+
+        .price-card.featured .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .price-card .description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-card .amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-card .currency {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .price-card li {
+            padding: 0.8rem 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .price-card li:last-child {
+            border-bottom: none;
+        }
+
+        .price-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .price-card .btn {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 5%;
+            background: var(--bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .benefit-item {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .benefit-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin: 0.5rem;
+            }
+
+            .hero {
+                padding: 3rem 5% 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                gap: 0.5rem;
+            }
+
+            .price-card.featured {
+                transform: scale(1);
+            }
+
+            .module-card {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero, .module-card, .price-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .module-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .module-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">AI.SB</div>
+        <div>
+            <a href="#curriculum">Course</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#benefits">Why This Course</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Master <span class="accent">AI Integration</span> for Your Small Business</h1>
+        <p>Stop wondering how AI can help your business. Learn frameworks, tools, and strategies used by successful entrepreneurs—in 8 weeks, at your own pace.</p>
+        <div class="cta-buttons">
+            <button class="btn btn-primary">Enroll Now</button>
+            <button class="btn btn-secondary">See Curriculum</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <h3>8 Weeks</h3>
+                <p>Self-paced learning</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+ Lessons</h3>
+                <p>Videos, templates, guides</p>
+            </div>
+            <div class="stat-item">
+                <h3>1000+</h3>
+                <p>Students already enrolled</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum" id="curriculum">
+        <h2 class="section-title">Your Learning Path</h2>
+        <p class="section-subtitle">8 modules designed for business owners who want real, practical results</p>
+
+        <div class="modules-grid">
+            <div class="module-card">
+                <div class="module-number">1</div>
+                <h3>AI Foundations</h3>
+                <p>Demystify AI. Learn what it can and can't do for small businesses, and why it matters now.</p>
+                <ul>
+                    <li>What is AI (without the hype)?</li>
+                    <li>Practical vs. theoretical AI</li>
+                    <li>AI for different business types</li>
+                    <li>Common myths busted</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">2</div>
+                <h3>Customer Service Automation</h3>
+                <p>Deploy AI chatbots and automation tools to handle support without hiring new staff.</p>
+                <ul>
+                    <li>Chatbot platforms & setup</li>
+                    <li>Training bots for your business</li>
+                    <li>Handling escalations</li>
+                    <li>Measuring success</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">3</div>
+                <h3>Content & Marketing AI</h3>
+                <p>Create content at scale. Use AI to write emails, social posts, blog articles, and more.</p>
+                <ul>
+                    <li>AI writing tools reviewed</li>
+                    <li>Prompting for best results</li>
+                    <li>Social media automation</li>
+                    <li>Email campaigns that convert</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">4</div>
+                <h3>Data & Analytics AI</h3>
+                <p>Turn raw data into actionable insights using AI analysis and predictive tools.</p>
+                <ul>
+                    <li>Data collection & tools</li>
+                    <li>Predictive analytics basics</li>
+                    <li>Customer behavior insights</li>
+                    <li>Reporting automation</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">5</div>
+                <h3>Sales & Lead Generation</h3>
+                <p>Qualify, nurture, and close leads faster with AI-powered sales tools.</p>
+                <ul>
+                    <li>Lead scoring & qualification</li>
+                    <li>Personalization at scale</li>
+                    <li>Sales forecasting</li>
+                    <li>Pipeline optimization</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">6</div>
+                <h3>Operations & Workflows</h3>
+                <p>Automate repetitive tasks and streamline internal processes using AI and no-code tools.</p>
+                <ul>
+                    <li>Workflow automation platforms</li>
+                    <li>Document processing AI</li>
+                    <li>Project management AI</li>
+                    <li>Cost savings calculation</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">7</div>
+                <h3>Building Your AI Strategy</h3>
+                <p>Create a custom roadmap for implementing AI across your specific business.</p>
+                <ul>
+                    <li>Audit your current gaps</li>
+                    <li>Prioritize quick wins</li>
+                    <li>Build a 90-day plan</li>
+                    <li>Budget & ROI planning</li>
+                </ul>
+            </div>
+
+            <div class="module-card">
+                <div class="module-number">8</div>
+                <h3>Case Studies & Scaling</h3>
+                <p>Learn from real businesses that scaled with AI, plus advanced integration techniques.</p>
+                <ul>
+                    <li>5 detailed case studies</li>
+                    <li>Lessons learned</li>
+                    <li>Advanced tool combinations</li>
+                    <li>Building AI culture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <h2 class="section-title">Why This Course?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">⏱️</div>
+                <h4>Save Time</h4>
+                <p>Automate hours of manual work every week</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💰</div>
+                <h4>Cut Costs</h4>
+                <p>Do more with fewer people and resources</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🚀</div>
+                <h4>Scale Faster</h4>
+                <p>Grow without proportional hiring</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔧</div>
+                <h4>Hands-On Tools</h4>
+                <p>Real tools, real workflows, real results</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">👥</div>
+                <h4>Community</h4>
+                <p>Learn alongside other business owners</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">♻️</div>
+                <h4>Lifetime Access</h4>
+                <p>Updates included forever</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <p class="section-subtitle">All plans include lifetime access and lifetime updates</p>
+
+        <div class="pricing-cards">
+            <div class="price-card">
+                <h3>Starter</h3>
+                <p class="description">For the curious entrepreneur</p>
+                <div>
+                    <span class="amount">£49</span>
+                    <span class="currency">one-time</span>
+                </div>
+                <ul>
+                    <li>8 core modules</li>
+                    <li>50+ video lessons</li>
+                    <li>Templates & guides</li>
+                    <li>Email support</li>
+                </ul>
+                <button class="btn btn-secondary">Get Started</button>
+            </div>
+
+            <div class="price-card featured">
+                <div class="badge">Most Popular</div>
+                <h3>Pro</h3>
+                <p class="description">For serious business owners</p>
+                <div>
+                    <span class="amount">£97</span>
+                    <span class="currency">one-time</span>
+                </div>
+                <ul>
+                    <li>Everything in Starter</li>
+                    <li>Tool comparison guides</li>
+                    <li>Custom strategy session</li>
+                    <li>Private community access</li>
+                    <li>Monthly group Q&A calls</li>
+                    <li>Fast-track support</li>
+                </ul>
+                <button class="btn btn-primary">Enroll Now</button>
+            </div>
+
+            <div class="price-card">
+                <h3>Team</h3>
+                <p class="description">For growing teams</p>
+                <div>
+                    <span class="amount">£297</span>
+                    <span class="currency">team of 5</span>
+                </div>
+                <ul>
+                    <li>Everything in Pro</li>
+                    <li>Licenses for 5 people</li>
+                    <li>Team implementation call</li>
+                    <li>Custom workshop</li>
+                    <li>Private Slack group</li>
+                    <li>Quarterly strategy reviews</li>
+                </ul>
+                <button class="btn btn-secondary">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 AI for Small Business. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Made for entrepreneurs who want to stay ahead.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Handle CTA buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const text = this.textContent.trim();
+                
+                if (text === 'See Curriculum') {
+                    e.preventDefault();
+                    document.getElementById('curriculum').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                } 
+                else if (text === 'Enroll Now' || text === 'Get Started') {
+                    e.preventDefault();
+                    // Replace with your actual Gumroad/Stripe/payment link
+                    const gumroadLink = 'https://gumroad.com/your-username/l/ai-for-small-business';
+                    const stripeLink = 'https://buy.stripe.com/your-stripe-link';
+                    
+                    // For now, show an alert. Replace with actual link when ready
+                    alert('Enrollment coming soon! Replace this with your Gumroad or Stripe payment link.\n\nUpdate the gumroadLink or stripeLink variable in the JavaScript.');
+                    // Uncomment below when you have your payment link:
+                    // window.location.href = gumroadLink;
+                }
+                else if (text === 'Contact Sales') {
+                    e.preventDefault();
+                    window.location.href = 'mailto:your-email@example.com?subject=Team Plan Inquiry';
+                }
+            });
+        });
+
+        // Scroll to pricing when clicking price cards
+        document.querySelectorAll('.price-card .btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const text = this.textContent.trim();
+                if (text === 'Contact Sales') {
+                    e.preventDefault();
+                    window.location.href = 'mailto:your-email@example.com?subject=Team Plan Inquiry';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
